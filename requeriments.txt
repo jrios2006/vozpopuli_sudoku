@@ -1,0 +1,12 @@
+# Automatización y Navegación Web (Sirve para tener una navegador oculto que el program usará para obtener la posición inicial)
+playwright>=1.41.0
+
+# Procesamiento de Imágenes y Visión Artificial (para próximos módulos)
+opencv-python>=4.9.0
+numpy>=1.26.0
+
+# OCR (Opcional, Hay qye saber instalar el programa en la máquina donde se ejecute y luego su componente python)
+pytesseract>=0.3.10 
+
+### pip install -r requeriments.txt
+### playwright install chromium

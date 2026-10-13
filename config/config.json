@@ -1,0 +1,23 @@
+{
+    "app": {
+        "name": "Sudoku Solver Automation",
+        "version": "1.0.0",
+        "debug_mode": true
+    },
+    "logger": {
+        "log_dir": "logs",
+        "log_file": "sudoku_app.log",
+        "log_level": "DEBUG",
+        "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+        "max_bytes": 5242880,
+        "backup_count": 3
+    },
+    "browser": {
+        "url": "https://puzzleme.amuselabs.com/pmm/sudoku?id=sudoku-dificil&set=0203&embed=1",
+        "headless": true,
+        "timeout_seconds": 15
+    },
+    "paths": {
+        "images_dir": "imagenes"
+    }
+}

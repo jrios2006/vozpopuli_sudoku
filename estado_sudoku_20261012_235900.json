@@ -1,0 +1,228 @@
+{
+    "metadatos": {
+        "fecha_captura": "2026-10-12T23:59:00.906257",
+        "estado_captura": "OK",
+        "mensaje_error": null,
+        "imagen_path": "imagenes/sudoku_20261012_235900.png",
+        "url_origen": "https://puzzleme.amuselabs.com/pmm/sudoku?id=sudoku-facil&set=0203&embed=1",
+        "imagen_solucion": "imagenes/sudoku_20261012_235900_solucion.png"
+    },
+    "tiempos": {
+        "fase_captura_segundos": 6.19,
+        "fase_deteccion_segundos": 0.1,
+        "fase_ocr_segundos": 6.72,
+        "fase_resolucion_segundos": 0.003,
+        "tiempo_total_segundos": 13.28
+    },
+    "procesamiento": {
+        "tablero_detectado": true,
+        "celdas_extraidas": 81,
+        "nivel_confianza_ocr": 0.0
+    },
+    "datos_sudoku": {
+        "matriz_inicial": [
+            [
+                6,
+                0,
+                0,
+                4,
+                0,
+                0,
+                0,
+                2,
+                0
+            ],
+            [
+                0,
+                0,
+                2,
+                0,
+                0,
+                8,
+                5,
+                6,
+                0
+            ],
+            [
+                7,
+                0,
+                4,
+                0,
+                0,
+                2,
+                0,
+                0,
+                0
+            ],
+            [
+                8,
+                0,
+                0,
+                3,
+                0,
+                0,
+                0,
+                5,
+                6
+            ],
+            [
+                9,
+                1,
+                0,
+                0,
+                8,
+                4,
+                0,
+                0,
+                3
+            ],
+            [
+                5,
+                0,
+                0,
+                0,
+                0,
+                6,
+                9,
+                0,
+                0
+            ],
+            [
+                3,
+                6,
+                0,
+                0,
+                0,
+                0,
+                0,
+                9,
+                0
+            ],
+            [
+                0,
+                9,
+                0,
+                6,
+                0,
+                7,
+                0,
+                3,
+                0
+            ],
+            [
+                0,
+                0,
+                0,
+                0,
+                5,
+                3,
+                6,
+                0,
+                1
+            ]
+        ],
+        "matriz_resuelta": [
+            [
+                6,
+                8,
+                9,
+                4,
+                3,
+                5,
+                1,
+                2,
+                7
+            ],
+            [
+                1,
+                3,
+                2,
+                7,
+                9,
+                8,
+                5,
+                6,
+                4
+            ],
+            [
+                7,
+                5,
+                4,
+                1,
+                6,
+                2,
+                3,
+                8,
+                9
+            ],
+            [
+                8,
+                2,
+                7,
+                3,
+                1,
+                9,
+                4,
+                5,
+                6
+            ],
+            [
+                9,
+                1,
+                6,
+                5,
+                8,
+                4,
+                2,
+                7,
+                3
+            ],
+            [
+                5,
+                4,
+                3,
+                2,
+                7,
+                6,
+                9,
+                1,
+                8
+            ],
+            [
+                3,
+                6,
+                5,
+                8,
+                4,
+                1,
+                7,
+                9,
+                2
+            ],
+            [
+                4,
+                9,
+                1,
+                6,
+                2,
+                7,
+                8,
+                3,
+                5
+            ],
+            [
+                2,
+                7,
+                8,
+                9,
+                5,
+                3,
+                6,
+                4,
+                1
+            ]
+        ],
+        "es_valido": true,
+        "resuelto": true
+    }
+}
