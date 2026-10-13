@@ -40,6 +40,7 @@ def inicializar_estado():
             "fase_deteccion_segundos": 0.0,
             "fase_ocr_segundos": 0.0,
             "fase_resolucion_segundos": 0.0,
+            "fase_inyeccion_segundos": 0.0,
             "tiempo_total_segundos": 0.0
         },
         "procesamiento": {

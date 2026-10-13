@@ -7,6 +7,7 @@ El flujo completo abarca desde
 * el reconocimiento mediante visión artificial (OCR)
 * la obtención de su solución lógica 
 * su visualización en una interfaz gráfica.
+* y la inyección automatizada de la solución en la página web original.
 
 ---
 
@@ -29,6 +30,7 @@ Se apoya en un gestor de estado centralizado (JSON) que acompaña la ejecución 
 │   ├── captura.py             # Automatiza Playwright para navegar y capturar el canvas web
 │   ├── deteccion.py           # Usa OpenCV para aislar, aplanar y recortar la cuadrícula
 │   ├── dibujado.py            # Superpone los números resueltos sobre la imagen fotográfica original
+│   ├── inyeccion.py           # Inyecta la solución simulando clics y pulsaciones en el DOM web
 │   ├── reconocimiento.py      # Divide la imagen y usa Tesseract OCR para digitalizar los números
 │   ├── solucionador.py        # Motor matemático (Backtracking) que halla la solución exacta
 │   └── validacion.py          # Revisa que la matriz extraída no rompa las reglas lógicas del Sudoku
@@ -78,6 +80,9 @@ Recuerda que el programa fenera varios ficheros:
 
 * **`dibujado.py`:** Toma la matriz resuelta y la superpone sobre la imagen del tablero original utilizando OpenCV, generando una nueva imagen con los números resueltos en otro color (ej. verde).
 
+* **`inyeccion.py`:** Interactúa directamente con el Document Object Model (DOM) de la página web. Localiza los elementos HTML de las celdas, hace clic en los huecos vacíos y envía pulsaciones de teclado para completar el juego online como si fuera un humano.
+
+
 * **`buscador.py`:** Trata de descubrir las URL que proponen los juegos para encontrar el tablero inicial. Nos basamos en un `json` dentro del código con las características que ha definido el periódico digital:
     * Nivel principiante
     * Nivel medio
@@ -94,7 +99,7 @@ Recuerda que el programa fenera varios ficheros:
 
 * **`main.py`:** Script para la ejecución en consola (CLI). Ejecuta el pipeline completo de manera secuencial y genera los archivos de log, estado JSON e imágenes en sus respectivas carpetas. Aquí es necesario saber la URL de alguna manera y no hay interacción con `buscador.py`.
 
-* **`gui.py`:** Interfaz gráfica interactiva desarrollada con **Tkinter**. Permite introducir URLs de forma dinámica, visualiza un log reducido en tiempo real de los tiempos y fases del pipeline, y muestra la imagen del sudoku resuelto directamente en pantalla. Hay un botón para descubrir las propuestas del diario digital y resolverlo.
+* **`gui.py`:** Interfaz gráfica interactiva desarrollada con Tkinter. Permite introducir URLs de forma dinámica, visualiza un log reducido en tiempo real de los tiempos y fases del pipeline, y muestra la imagen del sudoku resuelto directamente en pantalla. Incluye un botón para buscar las propuestas del diario digital y otro para aplicar e inyectar la solución en el navegador.
 
 ---
 
@@ -192,7 +197,7 @@ Antes de ejecutar el proyecto, asegúrate de crear el archivo `config/config.jso
 {
     "app": {
         "name": "Sudoku Solver Automation",
-        "version": "1.0.0",
+        "version": "1.1.0",
         "debug_mode": true
     },
     "logger": {
@@ -228,18 +233,21 @@ python main.py
 ```
 Revisará la URL configurada en `config.json` y depositará los resultados y evidencias en las carpetas `imagenes/` y la raíz del proyecto.
 
-El log del programa `sudoku_app.log` detalla cada parte del flujo del programa y el json resumen detalla los timepos que tarda cada parte del flujo, por ejemplo
+## Telemetría y rendimiento
+
+El log del programa `sudoku_app.log` detalla cada parte del flujo del programa y el JSON resumen detalla los tiempos exactos que tarda cada fase. Una vez aplicada la inyección, el JSON reflejará un desglose similar a este:
 
 ```json
     "tiempos": {
-        "fase_captura_segundos": 6.22,
+        "fase_captura_segundos": 6.03,
         "fase_deteccion_segundos": 0.06,
-        "fase_ocr_segundos": 7.88,
-        "fase_resolucion_segundos": 0.1109,
-        "tiempo_total_segundos": 14.34
+        "fase_ocr_segundos": 9.69,
+        "fase_resolucion_segundos": 0.0038,
+        "fase_inyeccion_segundos": 13.19,
+        "tiempo_total_segundos": 29.05
     }
 ```
 
-Repasando estos ficheros el programa podrá hacer estadísticas de como de eficinete es el programa y si cumple con los objetivos. Observar según el ejemplo que el timepo de resolución de una tablero sudoku bien formado es irrelevante en comparación con las otras partes del proceso. Encontrar el tablaro un 50% del tiempo y llevarlo a un tipo de dato estructurado otro 50% del tiempo de resolución.
+Repasando estos ficheros el programa podrá hacer estadísticas de la eficiencia general. Obsérvese que el tiempo de resolución matemática pura de un tablero bien formado (Backtracking) es prácticamente instantáneo (0.0038s) en comparación con el trabajo de Visión Artificial, OCR o la inyección DOM que requiere pausas para imitar a un humano de manera segura.
 
 No se ha querido resolver de momento en el sitio original el tablero.
