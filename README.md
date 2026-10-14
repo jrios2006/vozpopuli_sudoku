@@ -250,4 +250,17 @@ El log del programa `sudoku_app.log` detalla cada parte del flujo del programa y
 
 Repasando estos ficheros el programa podrá hacer estadísticas de la eficiencia general. Obsérvese que el tiempo de resolución matemática pura de un tablero bien formado (Backtracking) es prácticamente instantáneo (0.0038s) en comparación con el trabajo de Visión Artificial, OCR o la inyección DOM que requiere pausas para imitar a un humano de manera segura.
 
-No se ha querido resolver de momento en el sitio original el tablero.
+---
+
+## Instalación
+
+![Demo de instalación](instalacion_entorno.gif)
+
+---
+## Uso
+
+<video src="demo_automatizacion.mp4" controls="controls" width="100%"></video>
+
+---
+
+
