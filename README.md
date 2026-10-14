@@ -259,7 +259,7 @@ Repasando estos ficheros el programa podrá hacer estadísticas de la eficiencia
 ---
 ## Uso
 
-<video src="demo_automatizacion.mp4" controls="controls" width="100%"></video>
+Visualiza el fichero demo_automatizacion.mp4 que te hayas descargado de este repositorio
 
 ---
 
